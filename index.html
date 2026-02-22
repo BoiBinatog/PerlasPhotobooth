@@ -250,7 +250,7 @@ body {
       capturedImages = [];
       clearSlots();
       for (let i = 0; i < 4; i++) {
-        await showCountdown(2); 
+        await showCountdown(10); 
         let imgUrl = takePhoto();
         capturedImages.push(imgUrl);
         document.getElementById(`slot${i+1}`).src = imgUrl;
@@ -351,3 +351,4 @@ document.getElementById("secretToggle").addEventListener("click", () => {
   
 </body>
 </html>
+
