@@ -189,27 +189,27 @@ body {
     })
     .catch(err => console.error("Camera error:", err));
 
-    function drawCover(ctx, img, dx, dy, dWidth, dHeight) {
-      const imgRatio = img.width / img.height;
-      const boxRatio = dWidth / dHeight;
+  function drawCover(ctx, img, x, y, w, h) {
+  const imgRatio = img.width / img.height;
+  const boxRatio = w / h;
 
-      let sx, sy, sWidth, sHeight;
+  let sx, sy, sWidth, sHeight;
 
-      if (imgRatio > boxRatio) {
-        // wider → crop sides
-        sHeight = img.height;
-        sWidth = sHeight * boxRatio;
-        sx = (img.width - sWidth) / 2;
-        sy = 0;
-      } else {
-        // taller → crop top/bottom
-        sWidth = img.width;
-        sHeight = sWidth / boxRatio;
-        sx = 0;
-        sy = (img.height - sHeight) / 2;
-      }
+  if (imgRatio > boxRatio) {
+    // Image is wider than the box → crop sides
+    sHeight = img.height;
+    sWidth = img.height * boxRatio;
+    sx = (img.width - sWidth) / 2;
+    sy = 0;
+  } else {
+    // Image is taller than the box → crop top & bottom
+    sWidth = img.width;
+    sHeight = img.width / boxRatio;
+    sx = 0;
+    sy = (img.height - sHeight) / 2;
+  }
 
-      ctx.drawImage(img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+  ctx.drawImage(img, sx, sy, sWidth, sHeight, x, y, w, h);
     }
   
     function takePhoto() {
@@ -351,4 +351,5 @@ document.getElementById("secretToggle").addEventListener("click", () => {
   
 </body>
 </html>
+
 
