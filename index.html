@@ -27,7 +27,7 @@ body {
   }
 
 .preview {
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 70px;
   width: 71vw; 
   height: 85vh;
@@ -104,7 +104,7 @@ body {
   #slot4 { top: 448px; }
 
 .controls {
-  margin-top: 1px;
+  margin-top: -1px;
   margin-right: 220px;
   display: flex;
   gap: 160px;
@@ -126,8 +126,8 @@ body {
 }
 .secret-icon {
   position: absolute;
-  bottom: -30px;
-  right: 47px;
+  bottom: -28px;
+  right: 58px;
   width: 250px;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -260,7 +260,7 @@ body {
       capturedImages = [];
       clearSlots();
       for (let i = 0; i < 4; i++) {
-        await showCountdown(10); 
+        await showCountdown(2); 
         let imgUrl = takePhoto();
         capturedImages.push(imgUrl);
         document.getElementById(`slot${i+1}`).src = imgUrl;
